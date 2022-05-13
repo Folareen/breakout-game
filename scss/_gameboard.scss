@@ -1,0 +1,46 @@
+.game-board{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+
+    .result, .controls{
+        display: flex;
+        flex-direction: row;
+        width: 50%;
+        height: 100%;
+        justify-content: space-around;
+    }
+    .result{
+        flex-direction: column;
+        align-items: center;
+        border-right: 1px solid black;
+
+        hr{
+            width: 100%;
+        }
+    }
+
+    .controls{
+        align-items: center;
+        justify-content: space-evenly;
+
+        button{
+            width: 30%;
+            height: 70%;
+            font-size: 22px;
+            border: none;
+        }
+
+        .play-pause{
+            background-color: darkgreen;
+            color: white;
+        }
+
+        .stop{
+            background-color: darkred;
+            color: white;
+        }
+    }
+}

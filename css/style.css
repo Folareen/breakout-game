@@ -39,6 +39,74 @@
           transform: translateX(50%);
 }
 
+.game-board {
+  height: 60px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border: 1px solid black;
+}
+
+.game-board .result, .game-board .controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 50%;
+  height: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.game-board .result {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-right: 1px solid black;
+}
+
+.game-board .result hr {
+  width: 100%;
+}
+
+.game-board .controls {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.game-board .controls button {
+  width: 30%;
+  height: 70%;
+  font-size: 22px;
+  border: none;
+}
+
+.game-board .controls .play-pause {
+  background-color: darkgreen;
+  color: white;
+}
+
+.game-board .controls .stop {
+  background-color: darkred;
+  color: white;
+}
+
 *, *::after, *::before {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
