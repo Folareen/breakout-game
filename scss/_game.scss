@@ -1,0 +1,41 @@
+.game{
+    width: 100%;
+    height: 300px;
+    border: 2px solid black;
+    position: relative;
+
+    &__bricks{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: 25px;
+        grid-gap: 5px;
+        padding: 5px 5px;
+    
+
+        .brick{
+            background-color: rgb(3, 48, 27);
+        }
+
+
+    }
+
+    &__ball{
+        width: 30px;
+        height: 30px;
+        background-color: rgb(97, 6, 6);
+        position: absolute;
+        bottom: 50px;
+        border-radius: 50%;
+    }
+
+    &__pad {
+        height: 25px;
+        width: 100px;
+        background-color: rgb(7, 7, 68);
+        position: absolute;
+        bottom: 5px;
+        right: 50%;
+        transform: translateX(50%);
+
+    }
+}

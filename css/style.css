@@ -1,3 +1,44 @@
+.game {
+  width: 100%;
+  height: 300px;
+  border: 2px solid black;
+  position: relative;
+}
+
+.game__bricks {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 25px;
+  grid-gap: 5px;
+  padding: 5px 5px;
+}
+
+.game__bricks .brick {
+  background-color: #03301b;
+}
+
+.game__ball {
+  width: 30px;
+  height: 30px;
+  background-color: #610606;
+  position: absolute;
+  bottom: 50px;
+  border-radius: 50%;
+}
+
+.game__pad {
+  height: 25px;
+  width: 100px;
+  background-color: #070744;
+  position: absolute;
+  bottom: 5px;
+  right: 50%;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+}
+
 *, *::after, *::before {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -21,6 +62,5 @@ body {
 .container {
   width: 600px;
   height: 350px;
-  border: 2px solid black;
 }
 /*# sourceMappingURL=style.css.map */
