@@ -40,7 +40,7 @@
 }
 
 .game-board {
-  height: 60px;
+  height: 50px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
