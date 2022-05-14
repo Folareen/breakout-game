@@ -8,15 +8,125 @@
 .game__bricks {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[6];
-      grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: 25px;
-  grid-gap: 5px;
-  padding: 5px 5px;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 6px;
+  padding: 6px 6px;
+      grid-template-areas: "a b c d e f" "g h i j k l" "m n o p q r";
 }
 
-.game__bricks .brick {
+.game__bricks * {
   background-color: #03301b;
+  height: 25px;
+  width: 92px;
+}
+
+.game__bricks .brick1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: a;
+}
+
+.game__bricks .brick2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: b;
+}
+
+.game__bricks .brick3 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: c;
+}
+
+.game__bricks .brick4 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: d;
+}
+
+.game__bricks .brick5 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  grid-area: e;
+}
+
+.game__bricks .brick6 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 6;
+  grid-area: f;
+}
+
+.game__bricks .brick7 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: g;
+}
+
+.game__bricks .brick8 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: h;
+}
+
+.game__bricks .brick9 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: i;
+}
+
+.game__bricks .brick10 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
+  grid-area: j;
+}
+
+.game__bricks .brick11 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 5;
+  grid-area: k;
+}
+
+.game__bricks .brick12 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 6;
+  grid-area: l;
+}
+
+.game__bricks .brick13 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: m;
+}
+
+.game__bricks .brick14 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: n;
+}
+
+.game__bricks .brick15 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: o;
+}
+
+.game__bricks .brick16 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 4;
+  grid-area: p;
+}
+
+.game__bricks .brick17 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 5;
+  grid-area: q;
+}
+
+.game__bricks .brick18 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 6;
+  grid-area: r;
 }
 
 .game__ball {
