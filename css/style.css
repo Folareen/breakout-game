@@ -134,7 +134,10 @@
   height: 30px;
   background-color: #610606;
   position: absolute;
-  bottom: 50px;
+  bottom: 30px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   border-radius: 50%;
 }
 
@@ -215,6 +218,14 @@
 .game-board .controls .stop {
   background-color: darkred;
   color: white;
+}
+
+.game-board .controls select {
+  height: 70%;
+  background-color: #222020;
+  font-weight: bold;
+  color: white;
+  text-align: center;
 }
 
 *, *::after, *::before {
