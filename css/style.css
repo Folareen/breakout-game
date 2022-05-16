@@ -135,9 +135,7 @@
   background-color: #610606;
   position: absolute;
   bottom: 30px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  left: 285px;
   border-radius: 50%;
 }
 

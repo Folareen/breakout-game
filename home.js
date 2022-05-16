@@ -10,7 +10,7 @@ let ballXPosition = 0;
 let ballYPosition = 0;
 let playgameInterval;
 let speed;
-let direction;
+let direction = "up-right";
 
 
 PLAY_PAUSE_BTN.addEventListener('click', ()=>{
@@ -46,52 +46,48 @@ function pause(){
 
 }
 
-
-// console.log(ballXPosition)
 function game(){
-    let ballOffsetTop = Math.floor(GAME_BALL.getBoundingClientRect().top  - GAME_CONTAINER.getBoundingClientRect().top);
-    let ballOffsetBottom = Math.floor(GAME_BALL.getBoundingClientRect().bottom  - GAME_CONTAINER.getBoundingClientRect().bottom);
-    let ballOffsetRight = Math.floor(GAME_BALL.getBoundingClientRect().right  - GAME_CONTAINER.getBoundingClientRect().right);
-    let ballOffsetLeft = Math.floor(GAME_BALL.getBoundingClientRect().left - GAME_CONTAINER.getBoundingClientRect().left);
+    moveBall(direction);
 
-    console.log(
-        [
-            ballOffsetTop,
-            ballOffsetBottom,
-            ballOffsetRight,
-            ballOffsetLeft
-        ]
-    );
-
-    // [ 218, -32, -285, 285 ]
-
-    if(ballOffsetTop > 2 && ballOffsetLeft > 0 ){
-        moveBall("up-right");
+    if (ballYPosition == 220){
+        if(direction == "up-right" ){
+            direction = "down-right";
+            moveBall(direction)
+        }else if(direction == "up-left"){
+            direction = "down-left";
+            moveBall(direction)
+        }
+    } 
+    else if(ballYPosition == 0){
+        if(direction == "down-right" ){
+            direction = "up-right";
+            moveBall(direction)
+        }else if(direction == "down-left"){
+            direction = "up-left";
+            moveBall(direction)
+        }
     }
-    // else if(ballOffsetTop == 0 || ballOffsetBottom < 0){
-    //     moveBall("down-left");
-    //     // console.log("down left")
-    // }
 
+    if (ballXPosition + 285 == 0 ){
+        if(direction == "down-left"){
+            direction = "down-right";
+            moveBall(direction)
+        }else if(direction == "up-left"){
+            direction = "up-right";
+            moveBall(direction)
 
-    // moveBall(direction)
-    // if(GAME_BALL.getBoundingClientRect().top - 30 == 280)
-    // if(ballOffsetY > 0 ){
-    //     direction = "up-right"
-    //     moveBall(direction);
-    //     // console.log([GAME_BALL.getBoundingClientRect().top  - GAME_CONTAINER.getBoundingClientRect().top])
-    //     // console.log(GAME_BALL.style)
-    //     // console.log(
-    //     //     Math.floor(GAME_BALL.getBoundingClientRect().top  - GAME_CONTAINER.getBoundingClientRect().top)
-    //     // )
-    //     console.log([ballXPosition, ballYPosition])
-    // }else if(Math.floor(GAME_BALL.getBoundingClientRect().top  - GAME_CONTAINER.getBoundingClientRect().top) == 0 || direction == "down-left"){
-    //     direction = "down-left";
-    //     console.log("change")
-    //     moveBall(direction);
-    //     // console.log([ballXPosition, ballYPosition])
-    // } 
+        }
+    }
+    else if (ballXPosition - 285 == 0 ){
+        if(direction == "down-right"){
+            direction = "down-left";
+            moveBall(direction)
+        }else if(direction == "up-right"){
+            direction = "up-left";
+            moveBall(direction)
 
+        }
+    }
 }
 
 function getSpeed(){
@@ -107,31 +103,31 @@ function getSpeed(){
             break;
     }
 }
-
+function transform(x, y){
+    GAME_BALL.style.bottom = `${30 + y}px`;
+    GAME_BALL.style.left = `${285 + x}px`;
+}
 function moveBall(direction){
     switch (direction){
         case "up-right":
             ballXPosition += 1;
-            ballYPosition -= 1;
-            GAME_BALL.style.transform = `translate(${ballXPosition}px, ${ballYPosition}px)`;
+            ballYPosition += 1;
+            transform(ballXPosition, ballYPosition);
             break;
         case "up-left":
             ballXPosition -= 1;
-            ballYPosition -= 1;
-            GAME_BALL.style.transform = `translate(${ballXPosition}px, ${ballYPosition}px)`;
+            ballYPosition += 1;
+            transform(ballXPosition, ballYPosition);
             break;
         case "down-left":
             ballXPosition -= 1;
-            ballYPosition += 1;
-            GAME_BALL.style.transform = `translate(${ballXPosition}px, ${ballYPosition}px)`;
+            ballYPosition -= 1;
+            transform(ballXPosition, ballYPosition);
             break;
         case "down-right":
             ballXPosition += 1;
-            ballYPosition += 1;
-            GAME_BALL.style.transform = `translate(${ballXPosition}px, ${ballYPosition}px)`;
+            ballYPosition -= 1;
+            transform(ballXPosition, ballYPosition);
             break;
     }
-
 }
-
-
