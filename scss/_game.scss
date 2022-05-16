@@ -1,14 +1,14 @@
 .game{
     width: 100%;
     height: 280px;
-    border: 2px solid black;
+    outline: 2px solid black;
     position: relative;
 
     &__bricks{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-gap: 6px;
-        padding: 6px 6px;
+        grid-gap: 5px;
+        padding: 5px 5px;
         grid-template-areas:
             "a b c d e f"
             "g h i j k l"
@@ -17,7 +17,6 @@
         *{
             background-color: rgb(3, 48, 27);
             height: 25px;
-            width: 92px
         };
 
         $areas : a b c d e f g h i j k l m n o p q r;
@@ -38,7 +37,6 @@
         position: absolute;
         bottom: 30px;
         left: 285px;
-        // transform: translateX(-50%);
         border-radius: 50%;
 
     }
@@ -49,7 +47,7 @@
         background-color: rgb(7, 7, 68);
         position: absolute;
         bottom: 5px;
-        right: 50%;
-        transform: translateX(50%);
+        left: 250px;
+        // transform: translateX(50%);
     }
 }

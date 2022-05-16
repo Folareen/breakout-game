@@ -5,13 +5,14 @@ const SCORE = document.querySelector('.score');
 const GAME_STATUS = document.querySelector('.game-status');
 const GAME_CONTAINER = document.querySelector('.game');
 const GAME_BALL = document.querySelector('.game__ball');
+const GAME_PAD = document.querySelector('.game__pad');
 
 let ballXPosition = 0;
 let ballYPosition = 0;
 let playgameInterval;
 let speed;
 let direction = "up-right";
-
+let padPosition = 250;
 
 PLAY_PAUSE_BTN.addEventListener('click', ()=>{
     if (PLAY_PAUSE_BTN.innerText == "Play"){
@@ -21,6 +22,7 @@ PLAY_PAUSE_BTN.addEventListener('click', ()=>{
     }
 } );
 
+document.addEventListener('keydown', movePad)
 
 // play will setTimeout
 // pause will cleartimeout
@@ -39,7 +41,6 @@ function play(){
     }, speed);
     
 }
-
 function pause(){
     PLAY_PAUSE_BTN.innerText = "Play";
     clearInterval(playgame);
@@ -129,5 +130,26 @@ function moveBall(direction){
             ballYPosition -= 1;
             transform(ballXPosition, ballYPosition);
             break;
+    }
+}
+
+function movePad(e){
+    console.log(e.key)
+    console.log("mo")
+    switch (e.key){
+        case 'ArrowRight':
+            if(padPosition < 500){
+                padPosition += 10;
+                GAME_PAD.style.left = `${padPosition}px`;
+                console.log(window.getComputedStyle(GAME_PAD).left)
+            }
+            break;
+        case 'ArrowLeft':
+            if(padPosition > 0){
+                padPosition -= 10;
+                GAME_PAD.style.left = `${padPosition}px`;
+                console.log(window.getComputedStyle(GAME_PAD).left)
+            }
+            break;       
     }
 }
