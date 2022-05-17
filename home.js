@@ -21,12 +21,12 @@ PLAY_PAUSE_BTN.addEventListener('click', ()=>{
         pause();
     }
 } );
+STOP_BTN.addEventListener('click', endGame)
+document.addEventListener('keydown', movePad);
 
-document.addEventListener('keydown', movePad)
 
 
 function play(){
-    // console.log(LEVEL.value)
     PLAY_PAUSE_BTN.innerText = "Pause";
 
     getSpeed();
@@ -34,26 +34,17 @@ function play(){
 
     playgameInterval = setInterval(() =>{
         playGame();
-        // console.log(ballXPosition)
     }, speed);
     
 }
 function pause(){
     PLAY_PAUSE_BTN.innerText = "Play";
     clearInterval(playgameInterval);
-
 }
 
 function playGame(){
     GAME_STATUS.innerText = "";
-
     moveBall(direction);
-    // console.log(padPosition);
-    // console.log((window.getComputedStyle(GAME_PAD).left.substring(0, 3)))
-
-    // ((ballXPosition + 315 ) - (padPosition + 100) <= 100)
-    // && ((ballXPosition + 315 ) - (padPosition + 100) <= 70)
-    //
 
     if (ballYPosition == 220){
         if(direction == "up-right" ){
@@ -94,7 +85,6 @@ function playGame(){
         }else if(direction == "up-right"){
             direction = "up-left";
             moveBall(direction)
-
         }
     }
 }
@@ -142,15 +132,6 @@ function moveBall(direction){
 }
 
 function movePad(e){
-    // console.log(
-    //     [
-    //         (ballXPosition + 315 ),
-    //         (padPosition + 100)
-    //     ]
-    // )
-    // ((ballXPosition + 315 ) - (padPosition + 100) <= 35)
-    // console.log( ((padPosition + 100) - (ballXPosition + 315 )) )
-    // console.log("mo")
     switch (e.key){
         case 'ArrowRight':
             if(padPosition < 500){
