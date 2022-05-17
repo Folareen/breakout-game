@@ -189,6 +189,11 @@
   width: 100%;
 }
 
+.game-board .result .game-status {
+  color: darkred;
+  font-size: 18px;
+}
+
 .game-board .controls {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -201,7 +206,7 @@
 .game-board .controls button {
   width: 30%;
   height: 70%;
-  font-size: 22px;
+  font-size: 20px;
   border: none;
 }
 
@@ -218,9 +223,9 @@
 .game-board .controls select {
   height: 70%;
   background-color: #222020;
-  font-weight: bold;
   color: white;
   text-align: center;
+  font-size: 16px;
 }
 
 *, *::after, *::before {

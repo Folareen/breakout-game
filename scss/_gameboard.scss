@@ -20,6 +20,11 @@
         hr{
             width: 100%;
         }
+
+        .game-status{
+            color: darkred;
+            font-size: 18px;
+        }
     }
 
     .controls{
@@ -29,7 +34,7 @@
         button{
             width: 30%;
             height: 70%;
-            font-size: 22px;
+            font-size: 20px;
             border: none;
         }
 
@@ -46,9 +51,10 @@
         select{
             height: 70%;
             background-color: rgb(34, 32, 32);
-            font-weight: bold;
+            // font-weight: bold;
             color: white;
             text-align: center;
+            font-size: 16px;
         }
     }
 }

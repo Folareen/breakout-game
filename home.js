@@ -24,9 +24,6 @@ PLAY_PAUSE_BTN.addEventListener('click', ()=>{
 
 document.addEventListener('keydown', movePad)
 
-// play will setTimeout
-// pause will cleartimeout
-// stop will clearTimeout and display game over
 
 function play(){
     // console.log(LEVEL.value)
@@ -35,19 +32,21 @@ function play(){
     getSpeed();
     GAME_BALL.style.transition = `all ${speed / 1000}s linear`;
 
-    playgame = setInterval(() =>{
-        game();
+    playgameInterval = setInterval(() =>{
+        playGame();
         // console.log(ballXPosition)
     }, speed);
     
 }
 function pause(){
     PLAY_PAUSE_BTN.innerText = "Play";
-    clearInterval(playgame);
+    clearInterval(playgameInterval);
 
 }
 
-function game(){
+function playGame(){
+    GAME_STATUS.innerText = "";
+
     moveBall(direction);
     // console.log(padPosition);
     // console.log((window.getComputedStyle(GAME_PAD).left.substring(0, 3)))
@@ -73,6 +72,9 @@ function game(){
             direction = "up-left";
             moveBall(direction)
         }
+    }
+    else if(ballYPosition == -30){
+        endGame();
     }
 
     if (ballXPosition + 285 == 0 ){
@@ -154,17 +156,22 @@ function movePad(e){
             if(padPosition < 500){
                 padPosition += 10;
                 GAME_PAD.style.left = `${padPosition}px`;
-                // console.log(300 - padPosition)
-                // console.log(window.getComputedStyle(GAME_PAD).left)
             }
             break;
         case 'ArrowLeft':
             if(padPosition > 0){
                 padPosition -= 10;
                 GAME_PAD.style.left = `${padPosition}px`;
-                // console.log(padPosition)
-                // console.log(window.getComputedStyle(GAME_PAD).left)
             }
             break;       
     }
+}
+function endGame(){
+    clearInterval(playgameInterval);
+    GAME_STATUS.innerText = "Game Over!";
+    PLAY_PAUSE_BTN.innerText = "Play";
+    ballYPosition = 0;
+    ballXPosition = 0;
+    direction = "up-right";
+    GAME_PAD.style.left = "250px";
 }
