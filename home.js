@@ -49,6 +49,12 @@ function pause(){
 
 function game(){
     moveBall(direction);
+    // console.log(padPosition);
+    // console.log((window.getComputedStyle(GAME_PAD).left.substring(0, 3)))
+
+    // ((ballXPosition + 315 ) - (padPosition + 100) <= 100)
+    // && ((ballXPosition + 315 ) - (padPosition + 100) <= 70)
+    //
 
     if (ballYPosition == 220){
         if(direction == "up-right" ){
@@ -59,7 +65,7 @@ function game(){
             moveBall(direction)
         }
     } 
-    else if(ballYPosition == 0){
+    else if(ballYPosition == 0 && ((padPosition + 100) - (ballXPosition + 315 ) >= -5) && ((padPosition + 100) - (ballXPosition + 315 ) <= 85)){
         if(direction == "down-right" ){
             direction = "up-right";
             moveBall(direction)
@@ -134,21 +140,30 @@ function moveBall(direction){
 }
 
 function movePad(e){
-    console.log(e.key)
-    console.log("mo")
+    // console.log(
+    //     [
+    //         (ballXPosition + 315 ),
+    //         (padPosition + 100)
+    //     ]
+    // )
+    // ((ballXPosition + 315 ) - (padPosition + 100) <= 35)
+    // console.log( ((padPosition + 100) - (ballXPosition + 315 )) )
+    // console.log("mo")
     switch (e.key){
         case 'ArrowRight':
             if(padPosition < 500){
                 padPosition += 10;
                 GAME_PAD.style.left = `${padPosition}px`;
-                console.log(window.getComputedStyle(GAME_PAD).left)
+                // console.log(300 - padPosition)
+                // console.log(window.getComputedStyle(GAME_PAD).left)
             }
             break;
         case 'ArrowLeft':
             if(padPosition > 0){
                 padPosition -= 10;
                 GAME_PAD.style.left = `${padPosition}px`;
-                console.log(window.getComputedStyle(GAME_PAD).left)
+                // console.log(padPosition)
+                // console.log(window.getComputedStyle(GAME_PAD).left)
             }
             break;       
     }
