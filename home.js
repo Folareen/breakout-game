@@ -44,7 +44,8 @@ function play(){
 function pause(){
     PLAY_PAUSE_BTN.innerText = "Play";
     clearInterval(playgameInterval);
-    document.removeEventListener('keydown', movePad)
+    document.removeEventListener('keydown', movePad);
+    GAME_PAD.removeEventListener('touchmove', dragPad);
 }
 
 function playGame(){
@@ -54,14 +55,7 @@ function playGame(){
 
     document.addEventListener('keydown', movePad);
 
-    GAME_PAD.addEventListener('touchmove', (e) => {
-        let gamePadOffsetX =  (e.changedTouches[0].clientX) -(GAME_CONTAINER.getBoundingClientRect().left);
-    
-        if (gamePadOffsetX > 0 && gamePadOffsetX < 500){
-            padPosition = gamePadOffsetX;
-            GAME_PAD.style.left = `${padPosition}px`;
-        }
-    });
+    GAME_PAD.addEventListener('touchmove', dragPad);
 
     checkForBrickCollision();
 
@@ -140,6 +134,14 @@ function movePad(e){
             break;       
     }
 }
+function dragPad(e){
+    let gamePadOffsetX =  (e.changedTouches[0].clientX) -(GAME_CONTAINER.getBoundingClientRect().left);
+
+    if (gamePadOffsetX > 0 && gamePadOffsetX < 500){
+        padPosition = gamePadOffsetX;
+        GAME_PAD.style.left = `${padPosition}px`;
+    }
+}
 function endGame(){
     clearInterval(playgameInterval);
     GAME_STATUS.innerText = "Game Over!";
@@ -173,6 +175,8 @@ function endGame(){
     score = 0;
 
     transform(0, 0);
+    document.removeEventListener('keydown', movePad)
+    GAME_PAD.removeEventListener('touchmove', dragPad)
 }
 function checkForVerticalCollisions(){
     if (ballYPosition == 220){
