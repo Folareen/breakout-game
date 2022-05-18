@@ -29,6 +29,7 @@ PLAY_PAUSE_BTN.addEventListener('click', ()=>{
 STOP_BTN.addEventListener('click', endGame);
 
 
+
 function play(){
     PLAY_PAUSE_BTN.innerText = "Pause";
 
@@ -57,67 +58,77 @@ function playGame(){
 
     checkForBrickCollision();
 
-    if(lastRowBricksPositions.includes(ballXPosition + 250) && ballYPosition <= 129){
-        switch (ballXPosition + 250){
-            case 70:
-                removeBrick('.brick13');
-                break;
-            case 170:
-                removeBrick('.brick14');
-                break;
-            case 270:
-                removeBrick('.brick15');
-                break;
-            case 370:
-                removeBrick('.brick16');
-                break;
-            case 470:
-                removeBrick('.brick17');
-                break;     
-        }
 
-        changeBallDirection();
-    }
-    else if(secondRowBricksPositions.includes(ballXPosition + 250) && ballYPosition > 129 && ballYPosition <= 159){
-        switch (ballXPosition + 250){
-            case 70:
-                removeBrick('.brick7');
-                break;
-            case 170:
-                removeBrick('.brick8');
-                break;
-            case 270:
-                removeBrick('.brick9');
-                break;
-            case 370:
-                removeBrick('.brick10');
-                break;
-            case 470:
-                removeBrick('.brick11');
-                break;     
-        }
-        changeBallDirection();
-    }
-    else if(firstRowBricksPositions.includes(ballXPosition + 250) && ballYPosition > 159 && ballYPosition <= 189 ){
-        switch (ballXPosition + 250){
-            case 70:
-                removeBrick('.brick1');
-                break;
-            case 170:
-                removeBrick('.brick2');
-                break;
-            case 270:
-                removeBrick('.brick3');
-                break;
-            case 370:
-                removeBrick('.brick4');
-                break;
-            case 470:
-                removeBrick('.brick5');
-                break;     
-        }
 
-        changeBallDirection();
+    if(ballYPosition >= 100){
+
+        if(lastRowBricksPositions.includes(ballXPosition + 250) && ballYPosition <= 129){
+            console.log("change")
+            switch (ballXPosition + 250){
+                case 70:
+                    removeBrick('.brick13');
+                    break;
+                case 170:
+                    removeBrick('.brick14');
+                    break;
+                case 270:
+                    removeBrick('.brick15');
+                    break;
+                case 370:
+                    removeBrick('.brick16');
+                    break;
+                case 470:
+                    removeBrick('.brick17');
+                    break;     
+            }
+
+            changeBallDirection();
+        }
+        else if(secondRowBricksPositions.includes(ballXPosition + 250) && ballYPosition > 129 && ballYPosition <= 159){
+            console.log("change")
+
+            switch (ballXPosition + 250){
+                case 70:
+                    removeBrick('.brick7');
+                    break;
+                case 170:
+                    removeBrick('.brick8');
+                    break;
+                case 270:
+                    removeBrick('.brick9');
+                    break;
+                case 370:
+                    removeBrick('.brick10');
+                    break;
+                case 470:
+                    removeBrick('.brick11');
+                    break;     
+            }
+            changeBallDirection();
+        }
+        else if(firstRowBricksPositions.includes(ballXPosition + 250) && ballYPosition > 159 && ballYPosition <= 189 ){
+            console.log("change")
+
+            switch (ballXPosition + 250){
+                case 70:
+                    removeBrick('.brick1');
+                    break;
+                case 170:
+                    removeBrick('.brick2');
+                    break;
+                case 270:
+                    removeBrick('.brick3');
+                    break;
+                case 370:
+                    removeBrick('.brick4');
+                    break;
+                case 470:
+                    removeBrick('.brick5');
+                    break;     
+            }
+
+            changeBallDirection();
+        }
     }
 
     checkForVerticalCollisions()
