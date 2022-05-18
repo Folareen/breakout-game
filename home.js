@@ -1,3 +1,7 @@
+alert("Game guide: \n For Laptop: Move game-pad with right and left key \n For Mobile Phone: Move game-pad by dragging")
+if(window.innerWidth < 630){
+    alert("Pls rotate your screen")
+}
 const PLAY_PAUSE_BTN = document.querySelector('.play-pause');
 const STOP_BTN = document.querySelector('.stop');
 const LEVEL = document.querySelector('select');
@@ -29,7 +33,6 @@ PLAY_PAUSE_BTN.addEventListener('click', ()=>{
 STOP_BTN.addEventListener('click', endGame);
 
 
-
 function play(){
     PLAY_PAUSE_BTN.innerText = "Pause";
 
@@ -57,8 +60,6 @@ function playGame(){
     GAME_PAD.addEventListener('touchmove', dragPad);
 
     checkForBrickCollision();
-
-
 
     if(ballYPosition >= 100){
 
