@@ -34,7 +34,6 @@ function play(){
     PLAY_PAUSE_BTN.innerText = "Pause";
 
     getSpeed();
-    GAME_BALL.style.transition = `all ${getSpeed() / 1000}s linear`;
 
     playgameInterval = setInterval(() =>{
         playGame();
@@ -85,7 +84,7 @@ function getSpeed(){
             return 10;
             break;
         case "hard":
-            return 0.5;
+            return 1;
             break;
     }
 }
