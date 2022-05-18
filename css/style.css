@@ -185,6 +185,11 @@
   border-right: 1px solid black;
 }
 
+.game-board .result .score {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .game-board .result hr {
   width: 100%;
 }

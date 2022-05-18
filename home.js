@@ -12,7 +12,6 @@ const GAME_BRICKS = document.querySelector('.game__bricks')
 let ballXPosition = 0;
 let ballYPosition = 0;
 let playgameInterval;
-let speed;
 let direction = "up-right";
 let padPosition = 250;
 let score = 0;
@@ -27,18 +26,19 @@ PLAY_PAUSE_BTN.addEventListener('click', ()=>{
         pause();
     }
 } );
-STOP_BTN.addEventListener('click', endGame)
+STOP_BTN.addEventListener('click', endGame);
+
 
 
 function play(){
     PLAY_PAUSE_BTN.innerText = "Pause";
 
     getSpeed();
-    GAME_BALL.style.transition = `all ${speed / 1000}s linear`;
+    GAME_BALL.style.transition = `all ${getSpeed() / 1000}s linear`;
 
     playgameInterval = setInterval(() =>{
         playGame();
-    }, speed);
+    }, getSpeed());
     
 }
 function pause(){
@@ -53,6 +53,15 @@ function playGame(){
     moveBall(direction);
 
     document.addEventListener('keydown', movePad);
+
+    GAME_PAD.addEventListener('touchmove', (e) => {
+        let gamePadOffsetX =  (e.changedTouches[0].clientX) -(GAME_CONTAINER.getBoundingClientRect().left);
+    
+        if (gamePadOffsetX > 0 && gamePadOffsetX < 500){
+            padPosition = gamePadOffsetX;
+            GAME_PAD.style.left = `${padPosition}px`;
+        }
+    });
 
     checkForBrickCollision();
 
@@ -76,13 +85,13 @@ function playGame(){
 function getSpeed(){
     switch (LEVEL.value){
         case "easy":
-            speed = 60;
+            return 20;
             break;
         case "normal":
-            speed = 30;
+            return 10;
             break;
         case "hard":
-            speed = 10;
+            return 0.5;
             break;
     }
 }
