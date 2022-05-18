@@ -58,16 +58,27 @@ function playGame(){
 
     checkForBrickCollision();
 
-    if(ballYPosition >= 130){
-        if(lastRowBricksPositions.includes(ballXPosition + 285) && ballYPosition <= 130){
-            changeBallDirection();
+    if(ballYPosition >= 100){
+        // console.log(ballYPosition);
+        // console.log(ballXPosition + 285)
+        if (lastRowBricksPositions.includes(ballXPosition + 285) ){
+            console.log("change");
+            clearInterval(playgameInterval)
         }
-        else if(secondRowBricksPositions.includes(ballXPosition + 285) && ballYPosition >= 130 && ballYPosition < 160){
-            changeBallDirection();
-        }
-        else if(firstRowBricksPositions.includes(ballXPosition + 285) && ballYPosition >= 160 && ballYPosition < 190){
-            changeBallDirection();
-        }
+        console.log(lastRowBricksPositions);
+
+        // if(lastRowBricksPositions.includes(ballXPosition + 250) && ballYPosition <= 100){
+        //     console.log("change")
+        //     changeBallDirection();
+        // }
+        // else if(secondRowBricksPositions.includes(ballXPosition + 250) && ballYPosition > 100 && ballYPosition <= 129){
+        //     console.log("change")
+        //     changeBallDirection();
+        // }
+        // else if(firstRowBricksPositions.includes(ballXPosition + 250) && ballYPosition > 129 && ballYPosition <= 159 ){
+        //     console.log("change")
+        //     changeBallDirection();
+        // }
     }
 
     checkForVerticalCollisions()
@@ -144,6 +155,7 @@ function dragPad(e){
 function endGame(){
     clearInterval(playgameInterval);
     GAME_STATUS.innerText = "Game Over!";
+    GAME_STATUS.style.color = "darkred"
     PLAY_PAUSE_BTN.innerText = "Play";
     ballYPosition = 0;
     ballXPosition = 0;
@@ -178,7 +190,7 @@ function endGame(){
     GAME_PAD.removeEventListener('touchmove', dragPad)
 }
 function checkForVerticalCollisions(){
-    if (ballYPosition == 220){
+    if (ballYPosition == 190){
         if(direction == "up-right" ){
             direction = "down-right";
             moveBall(direction)
@@ -225,77 +237,77 @@ function checkForHorizontalCollisions(){
 
 function checkForBrickCollision(){
     // last row
-    if(ballXPosition + 285 <= 100 && ballYPosition == 130){
+    if(ballXPosition + 285 <= 100 && ballYPosition == 100){
         checkPosition(lastRowBricksPositions, 70);
         removeBrick('.brick13');
     }
-    else if(ballXPosition + 285 > 100 && ballXPosition + 285 <= 200 &&  ballYPosition == 130){
+    else if(ballXPosition + 285 > 100 && ballXPosition + 285 <= 200 &&  ballYPosition == 100){
         checkPosition(lastRowBricksPositions, 170);
         removeBrick('.brick14');
     }
-    else if(ballXPosition + 285 > 200 && ballXPosition + 285 <= 300 &&  ballYPosition == 130){
+    else if(ballXPosition + 285 > 200 && ballXPosition + 285 <= 300 &&  ballYPosition == 100){
         checkPosition(lastRowBricksPositions, 270);
         removeBrick('.brick15');
     }
-    else if(ballXPosition + 285 > 300 && ballXPosition + 285 <= 400 &&  ballYPosition == 130){
+    else if(ballXPosition + 285 > 300 && ballXPosition + 285 <= 400 &&  ballYPosition == 100){
         checkPosition(lastRowBricksPositions, 370);
         removeBrick('.brick16');
     }
-    else if(ballXPosition + 285 > 400 && ballXPosition + 285 <= 500 &&  ballYPosition == 130){
+    else if(ballXPosition + 285 > 400 && ballXPosition + 285 <= 500 &&  ballYPosition == 100){
         checkPosition(lastRowBricksPositions, 470);
         removeBrick('.brick17');
     }
-    else if(ballXPosition + 285 > 500 && ballXPosition + 285 <= 600 &&  ballYPosition == 130){
+    else if(ballXPosition + 285 > 500 && ballXPosition + 285 <= 600 &&  ballYPosition == 100){
         checkPosition(lastRowBricksPositions, 570);
         removeBrick('.brick18')
     }
     // 2nd row
-    else if(ballXPosition + 285 <= 100 && ballYPosition == 160){
+    else if(ballXPosition + 285 <= 100 && ballYPosition == 130){
         checkPosition(secondRowBricksPositions, 70);
         removeBrick('.brick7');
     }
-    else if(ballXPosition + 285 > 100 && ballXPosition + 285 <= 200 &&  ballYPosition == 160){
+    else if(ballXPosition + 285 > 100 && ballXPosition + 285 <= 200 &&  ballYPosition == 130){
         checkPosition(secondRowBricksPositions, 170);
         removeBrick('.brick8')
     }
-    else if(ballXPosition + 285 > 200 && ballXPosition + 285 <= 300 &&  ballYPosition == 160){
+    else if(ballXPosition + 285 > 200 && ballXPosition + 285 <= 300 &&  ballYPosition == 130){
         checkPosition(secondRowBricksPositions, 270);
         removeBrick('.brick9')
     }
-    else if(ballXPosition + 285 > 300 && ballXPosition + 285 <= 400 &&  ballYPosition == 160){
+    else if(ballXPosition + 285 > 300 && ballXPosition + 285 <= 400 &&  ballYPosition == 130){
         checkPosition(secondRowBricksPositions, 370);
         removeBrick('.brick10')
     }
-    else if(ballXPosition + 285 > 400 && ballXPosition + 285 <= 500 &&  ballYPosition == 160){
+    else if(ballXPosition + 285 > 400 && ballXPosition + 285 <= 500 &&  ballYPosition == 130){
         checkPosition(secondRowBricksPositions, 470);
         removeBrick('.brick11')
     }
-    else if(ballXPosition + 285 > 500 && ballXPosition + 285 <= 600 &&  ballYPosition == 160){
+    else if(ballXPosition + 285 > 500 && ballXPosition + 285 <= 600 &&  ballYPosition == 130){
         checkPosition(secondRowBricksPositions, 570);
         removeBrick('.brick12')
     }
     // 1st row
-    else if(ballXPosition + 285 <= 100 && ballYPosition == 190){
+    else if(ballXPosition + 285 <= 100 && ballYPosition == 160){
         checkPosition(firstRowBricksPositions, 70);
         removeBrick('.brick1');
     }
-    else if(ballXPosition + 285 > 100 && ballXPosition + 285 <= 200 &&  ballYPosition == 190){
+    else if(ballXPosition + 285 > 100 && ballXPosition + 285 <= 200 &&  ballYPosition == 160){
         checkPosition(firstRowBricksPositions, 170);
         removeBrick('.brick2')
     }
-    else if(ballXPosition + 285 > 200 && ballXPosition + 285 <= 300 &&  ballYPosition == 190){
+    else if(ballXPosition + 285 > 200 && ballXPosition + 285 <= 300 &&  ballYPosition == 160){
         checkPosition(firstRowBricksPositions, 270);
         removeBrick('.brick3');
     }
-    else if(ballXPosition + 285 > 300 && ballXPosition + 285 <= 400 &&  ballYPosition == 190){
+    else if(ballXPosition + 285 > 300 && ballXPosition + 285 <= 400 &&  ballYPosition == 160){
         checkPosition(firstRowBricksPositions, 370);
         removeBrick('.brick4')
     }
-    else if(ballXPosition + 285 > 400 && ballXPosition + 285 <= 500 &&  ballYPosition == 190){
+    else if(ballXPosition + 285 > 400 && ballXPosition + 285 <= 500 &&  ballYPosition == 160){
         checkPosition(firstRowBricksPositions, 470);
         removeBrick('.brick5')
     }
-    else if(ballXPosition + 285 > 500 && ballXPosition + 285 <= 600 &&  ballYPosition == 190){
+    else if(ballXPosition + 285 > 500 && ballXPosition + 285 <= 600 &&  ballYPosition == 160){
         checkPosition(firstRowBricksPositions, 570);
         removeBrick('.brick6')
     }
@@ -321,6 +333,8 @@ function removeBrick(brick){
 
         if(score == 18){
             endGame();
+            GAME_STATUS.innerText = "You won!";
+            GAME_STATUS.style.color = "green";
         }
     }
 }
