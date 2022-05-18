@@ -15,9 +15,9 @@ let playgameInterval;
 let direction = "up-right";
 let padPosition = 250;
 let score = 0;
-let lastRowBricksPositions = [70, 170, 270, 370, 470, 570];
-let secondRowBricksPositions = [70, 170, 270, 370, 470, 570];
-let firstRowBricksPositions = [70, 170, 270, 370, 470, 570];
+let lastRowBricksPositions = [70, 170, 270, 370, 470];
+let secondRowBricksPositions = [70, 170, 270, 370, 470];
+let firstRowBricksPositions = [70, 170, 270, 370, 470];
 
 PLAY_PAUSE_BTN.addEventListener('click', ()=>{
     if (PLAY_PAUSE_BTN.innerText == "Play"){
@@ -58,14 +58,21 @@ function playGame(){
 
     checkForBrickCollision();
 
+    // if ((ballXPosition + 285) == 70){
+    //     clearInterval(playgameInterval)
+    // }
+
     if(ballYPosition >= 100){
         // console.log(ballYPosition);
         // console.log(ballXPosition + 285)
-        if (lastRowBricksPositions.includes(ballXPosition + 285) ){
+
+
+
+        if (secondRowBricksPositions.includes(ballXPosition + 285) ){
             console.log("change");
             clearInterval(playgameInterval)
         }
-        console.log(lastRowBricksPositions);
+        console.log(secondRowBricksPositions);
 
         // if(lastRowBricksPositions.includes(ballXPosition + 250) && ballYPosition <= 100){
         //     console.log("change")
@@ -258,7 +265,7 @@ function checkForBrickCollision(){
         removeBrick('.brick17');
     }
     else if(ballXPosition + 285 > 500 && ballXPosition + 285 <= 600 &&  ballYPosition == 100){
-        checkPosition(lastRowBricksPositions, 570);
+        // checkPosition(lastRowBricksPositions);
         removeBrick('.brick18')
     }
     // 2nd row
@@ -283,7 +290,7 @@ function checkForBrickCollision(){
         removeBrick('.brick11')
     }
     else if(ballXPosition + 285 > 500 && ballXPosition + 285 <= 600 &&  ballYPosition == 130){
-        checkPosition(secondRowBricksPositions, 570);
+        // checkPosition(secondRowBricksPositions, 570);
         removeBrick('.brick12')
     }
     // 1st row
@@ -308,7 +315,7 @@ function checkForBrickCollision(){
         removeBrick('.brick5')
     }
     else if(ballXPosition + 285 > 500 && ballXPosition + 285 <= 600 &&  ballYPosition == 160){
-        checkPosition(firstRowBricksPositions, 570);
+        // checkPosition(firstRowBricksPositions, 570);
         removeBrick('.brick6')
     }
 }

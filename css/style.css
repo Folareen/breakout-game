@@ -215,6 +215,14 @@
   border: none;
 }
 
+.game-board .controls button:active, .game-board .controls button:focus {
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.4);
+  -webkit-transform: scale(0.94);
+          transform: scale(0.94);
+  outline: none;
+}
+
 .game-board .controls .play-pause {
   background-color: darkgreen;
   color: white;

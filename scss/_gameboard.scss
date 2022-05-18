@@ -41,6 +41,12 @@
             height: 70%;
             font-size: 20px;
             border: none;
+
+            &:active, &:focus{
+                box-shadow: 0 0 1px 1px rgba( 0, 0, 0, .4);
+                transform: scale(.94);
+                outline: none;
+            }
         }
 
         .play-pause{
