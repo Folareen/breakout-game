@@ -18,6 +18,7 @@
 .game__bricks * {
   background-color: #03301b;
   height: 25px;
+  width: 95px;
 }
 
 .game__bricks .brick1 {
@@ -134,7 +135,7 @@
   background-color: #610606;
   position: absolute;
   bottom: 30px;
-  left: 285px;
+  left: 290px;
   border-radius: 50%;
 }
 
@@ -144,7 +145,7 @@
   background-color: #070744;
   position: absolute;
   bottom: 5px;
-  left: 250px;
+  left: 255px;
 }
 
 .game-board {
@@ -262,7 +263,7 @@ body {
 }
 
 .container {
-  width: 600px;
+  width: 610px;
   height: 330px;
 }
 /*# sourceMappingURL=style.css.map */
